@@ -28,13 +28,12 @@ Rails.application.routes.draw do
   #   end
     resources :bookings, :only => [:new, :create] do
       collection do
-        get 'booked_list'
         get 'upcoming'
         get 'todays'
       end
     end
 
-    
+
   # Example resource route with sub-resources:
   #   resources :products do
   #     resources :comments, :sales

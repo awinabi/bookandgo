@@ -3,6 +3,7 @@ class BookingsController < ApplicationController
 before_action :authenticate_user!
 
 	def index
+		@bookings = Booking.where(status: false).order("starts_at DESC")
 	end
 
 	def new
@@ -21,10 +22,6 @@ before_action :authenticate_user!
 		  @employees_list = User.all
 		  render new_booking_path
 		end
-	end
-
-	def booked_list
-		@booked_room_list = Booking.where(status: false).order("starts_at DESC").last(100)
 	end
 
 	def upcoming
